@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>For Ayat</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<video autoplay loop muted>
+  <source src="https://cdn.coverr.co/videos/coverr-a-couple-walking-on-the-beach-1667/1080p.mp4">
+</video>
+
+<div class="overlay"></div>
+
+<!-- SCENES -->
+
+<div class="scene active" id="s1">
+  <div>
+    <h1>
+      This isn’t just a website…<br>
+      it was made for you, Ayat.
+    </h1>
+
+    <button class="btn primary" onclick="go(2)">Start</button>
+  </div>
+</div>
+
+<div class="scene" id="s2">
+  <div>
+    <h1 class="soft">Before anything… what do you want to feel?</h1>
+
+    <div class="row">
+      <button class="btn primary" onclick="go(3)">💖 Feel Loved</button>
+      <button class="btn" onclick="go(3)">🌙 Deep</button>
+      <button class="btn" onclick="go(3)">✨ Surprise</button>
+    </div>
+  </div>
+</div>
+
+<div class="scene" id="s3">
+  <div>
+    <h1>
+      انا عارف اني اوقات كتير بزعلك و انك بتشوفي ده قلة اهتمام او زعلك ده حاجه بسيطه بالنسبالي ، ومقدرش الومك لو وصلك الاحساس ده<br><br>
+
+      بس انا مقصدش ابدا احسسك كده و انتي فعلا اغلي انسانه ف حياتي<br><br>
+
+      ميفرقليش اي حد تاني وعشان كده بحاول اثبتلك ده<br><br>
+
+      انا بحبك و نفسي اوي اكمل حياتي معاكي
+    </h1>
+
+    <div class="row">
+      <button class="btn primary" onclick="go(4)">YES 💖</button>
+      <button class="btn" onclick="go(5)">🥺 NO</button>
+    </div>
+  </div>
+</div>
+
+<div class="scene" id="s4">
+  <div>
+    <h1>
+      💖 She said YES…<br><br>
+      Everything starts here.
+    </h1>
+
+    <div class="row">
+      <button class="btn primary" onclick="loop()">Explore</button>
+      <button class="btn" onclick="restart()">Replay</button>
+    </div>
+  </div>
+</div>
+
+<div class="scene" id="s5">
+  <div>
+    <h1>
+      💔 I understand…<br><br>
+      You still matter to me.
+    </h1>
+
+    <div class="row">
+      <button class="btn primary" onclick="soft()">Calm Mode</button>
+      <button class="btn" onclick="restart()">Replay</button>
+    </div>
+  </div>
+</div>
+
+<script>
+function go(n){
+  document.querySelectorAll(".scene").forEach(s=>s.classList.remove("active"));
+  document.getElementById("s"+n).classList.add("active");
+}
+
+function restart(){ go(1); }
+
+function loop(){
+  go(4);
+  hearts(60);
+}
+
+function soft(){
+  go(5);
+}
+
+function hearts(count){
+  for(let i=0;i<count;i++){
+    const h=document.createElement("div");
+    h.className="heart";
+    h.innerHTML="💖";
+    document.body.appendChild(h);
+
+    h.style.left=Math.random()*100+"vw";
+    h.style.top="80vh";
+    h.style.fontSize=(10+Math.random()*20)+"px";
+
+    setTimeout(()=>h.remove(),3000);
+  }
+}
+</script>
+
+</body>
+</html>
